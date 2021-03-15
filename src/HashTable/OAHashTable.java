@@ -2,17 +2,16 @@ package HashTable;
 
 public abstract class OAHashTable implements IHashTable {
 	
-	//Set fields
+	/**Set fields */
 	public HashTableElement [] table; 
 	private HashTableElement defaultElem;
 	
-	//Constructor
+	/**Constructor */
 	public OAHashTable(int m) {
 		this.table = new HashTableElement[m];
 		this.defaultElem = new HashTableElement(0,0);
 	}
-	
-	
+
 	@Override
 	public HashTableElement Find(long key) {
 		for (int i = 0; i < this.table.length; i++) { // start probing process

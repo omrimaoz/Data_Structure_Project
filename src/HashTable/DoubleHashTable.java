@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class DoubleHashTable extends OAHashTable {
 	
-	//Set fields
+	/**Set fields */
 	private ModHash HashFunc1;
 	private ModHash HashFunc2;
 	private int length;
 
-	//Constructor + create the 2 hash func 
+	/**Constructor + create the 2 hash func */
 	public DoubleHashTable(int m, long p) {
 		super(m);
 		this.HashFunc1 = ModHash.GetFunc(m, p);
@@ -17,7 +17,7 @@ public class DoubleHashTable extends OAHashTable {
 		this.length = m;
 	}
 	
-	//Check that the second hash func don't return 0 for specific key
+	/**Check that the second hash func don't return 0 for specific key */
 	@Override
 	public int Hash(long x, int i) {
 		int HF2 = HashFunc2.Hash(x);

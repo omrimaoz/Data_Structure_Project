@@ -8,10 +8,10 @@ package BST_List;
  *
  */
  public class TreeList{
-	 
-	 //fields
+
+	/**fields */
 	 AVLTree tree;
-	 //constructor
+	/**constructor */
 	 public TreeList() {
 		 this.tree = new AVLTree();
 	 }
@@ -25,11 +25,11 @@ package BST_List;
 
   public Item retrieve(int i)
   {
-	  //boundaries of the index
+	  /**boundaries of the index */
 	  if (this.tree.size() < i || i < 0){
 		  return null;
 	  }
-	  //findSelect to return node in ith position
+	  /**findSelect to return node in ith position */
 	  AVLTree.IAVLNode node = this.tree.findSelect(i+1);
 	  return new Item(node.getKey(), node.getValue());
   }
@@ -41,7 +41,7 @@ package BST_List;
    * returns -1 if i<0 or i>n otherwise return 0.
    */
    public int insert(int i, int k, String s) {
-	   //boundaries of the index
+	   /**boundaries of the index */
 	   if (i < 0 || i > this.tree.size()) return -1;
 	   AVLTree.IAVLNode node = this.tree.getRoot();
 	   AVLTree.IAVLNode newNode = tree.new AVLNode(k, s, null);
@@ -50,7 +50,6 @@ package BST_List;
 		   return 0;
 	   }
 	   if (i == this.tree.size()) {
-		   //if (node == null);
 		   while (node.getRight() != null) {
 			   node = node.getRight();
 		   }
@@ -58,14 +57,14 @@ package BST_List;
 		   newNode.setParent(node);
 	   }
 	   else {
-		   //find node with index i+1
+		   /**find node with index i+1 */
 		   node = tree.findSelect(i+1);
-		   //if there is no left child, add the new node as a left child
-		   if (node.getLeft() == null) {
+		   /**if there is no left child, add the new node as a left child */
+		   if(node.getLeft() == null) {
 			   node.setLeft(newNode);
 			   newNode.setParent(node);
 		   }
-		   //otherwise add the new node as the right child of its predecessor
+		   /**otherwise add the new node as the right child of its predecessor */
 		   else {
 			   node = node.getLeft();
 			   while (node.getRight() != null) {
@@ -75,7 +74,7 @@ package BST_List;
 			   newNode.setParent(node);
 		   }
 	   }
-	   //update necessary fields and keep legal AVLTree 
+	   /**update necessary fields and keep legal AVLTree */
 	   tree.rotate(newNode);
 	   return 0;
    }
@@ -88,13 +87,13 @@ package BST_List;
    */
 
    public int delete(int i) {
-	   //boundaries of the index
+	   /**boundaries of the index */
 	   if (i<0 || i > this.tree.size())
 		   return -1;
 	   else {
-		   //findSelect to return node in ith position
+		   /**findSelect to return node in ith position */
 		   AVLTree.IAVLNode node = tree.deleteNode(tree.findSelect(i+1));
-		   //update necessary fields and keep legal AVLTree  
+		   /**update necessary fields and keep legal AVLTree   */
 		   tree.rotate(node);
    		}
 	   return 0;

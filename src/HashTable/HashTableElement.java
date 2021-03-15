@@ -1,6 +1,7 @@
 package HashTable;
 
 public class HashTableElement{
+
 	private long key;
 	private long value;
 	

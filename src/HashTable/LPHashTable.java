@@ -1,14 +1,12 @@
 package HashTable;
 
-import java.util.Random;
-
 public class LPHashTable extends OAHashTable {
 	
-	//Set fields
+	/** Set fields */
 	private ModHash HashFunc;
 	private int length;
 	
-	//Constructor + create the hash func 
+	/**Constructor + create the hash func */
 	public LPHashTable(int m, long p) {
 		super(m);
 		this.HashFunc = ModHash.GetFunc(m, p);
